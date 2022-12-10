@@ -41,4 +41,19 @@ $ ros2 run turtlesim turtlesim_node
 ```
 $ ros2 run turtlesim turtle_teleop_key
 ```
-``` ros2 service list ``` komutunu yeni bir terminalde çalıştırılması, sistemde o anda aktif olan tüm servislerin bir listesini döndürür. ``` ros2 service type <service_name> ``` komutu ise servis türünü öğrenmeye yarar.
+``` ros2 service list ``` komutunu yeni bir terminalde çalıştırılması, sistemde o anda aktif olan tüm servislerin bir listesini döndürür. ``` ros2 service type <service_name> ``` komutu ise servis türünü öğrenmeye yarar.Servisleri komut satırından arayabilirsiniz, ancak önce giriş argümanlarının yapısını bilmeniz gerekir. Giriş argümanlarının yapılarını ``` ros2 interface show <type_name>.srv ``` komut satırı ile öğrenebiliriz.
+### Örnek
+Bir /spawn çağrı ve isteğindeki bağımsız değişkenleri görmek için şu komutu çalıştırın:
+```
+$ros2 interface show turtlesim/srv/Spawn
+```
+Döndürdüğü değerler:
+```
+float32 x
+float32 y
+float32 theta
+string name 
+---
+string name
+```
+

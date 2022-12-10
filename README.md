@@ -8,7 +8,9 @@ $ ros2 run turtlesim turtlesim_node
 ```
 $ ros2 run turtlesim turtle_teleop_key
 ```
-Üçüncü bir terminal açıp akif düğümlerin parametrelerini inceleyin.
+Üçüncü bir terminal açıp aktif düğümlerin parametrelerini inceleyin.
 ```
 $ ros2 param list
 ```
+https://user-images.githubusercontent.com/73121257/175230830-7b60e1a8-4418-43b1-b821-5d68d1455288.mp4
+

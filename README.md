@@ -56,4 +56,18 @@ string name
 ---
 string name
 ```
+Artık bir hizmet türünün ne olduğunu, bir hizmetin türünü nasıl bulacağınızı ve bu türün bağımsız değişkenlerinin yapısını nasıl bulacağınızı bildiğinize göre, aşağıdakileri kullanarak bir hizmeti çağırabilirsiniz:
+```
+ros2 service call <service_name> <service_type> <arguments>
+```
+Şimdi /spawn çağırıp argümanlar girerek yeni bir kaplumbağa üretelim. Komut satırından yapılan bir hizmet çağrısında <arguments> girişinin YAML sözdiziminde olması gerekir.
+```
+ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+```
+Neler olup bittiğine dair bu yöntem tarzı görünümü ve ardından hizmet yanıtını alacaksınız:
+ ```
+requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, name='')
 
+response:
+turtlesim.srv.Spawn_Response(name='turtle2')
+```

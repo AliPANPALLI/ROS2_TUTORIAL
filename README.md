@@ -29,8 +29,16 @@ $ ros2 param set /turtlesim background_b 150
  Değiştirlen parametreleri kaydetmek için ``` $ ros2 param dump /turtlesim ``` kullanılır.Paametre yüklemek için ```  ros2 param load /turtlesim turtlesim.yaml ``` kullanılır.
 
 ## ROS2 SERVICES
+Servisler kullanıcıdan istek geldiği sürece çalışırlar.
 ![Screenshot from 2022-12-10 18-59-23](https://user-images.githubusercontent.com/73121257/206863929-2ea2425c-ebcb-4055-b8ee-ea2d10be0b29.png)
-
+Bir servise birden fazla client bağlanabilir.
 ![Screenshot from 2022-12-10 19-00-51](https://user-images.githubusercontent.com/73121257/206864017-19925835-adda-4ab8-a7a9-8a2034088a4c.png)
-
-
+İlk olarak Turtlesim düğümünü başlatalım
+```
+$ ros2 run turtlesim turtlesim_node
+```
+İkinci bir terminalde teleop_turtle düğümünü çalıştıralım.
+```
+$ ros2 run turtlesim turtle_teleop_key
+```
+``` ros2 service list ``` komutunu yeni bir terminalde çalıştırılması, sistemde o anda aktif olan tüm servislerin bir listesini döndürür. ``` ros2 service type <service_name> ``` komutu ise servis türünü öğrenmeye yarar.

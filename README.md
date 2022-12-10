@@ -12,5 +12,5 @@ $ ros2 run turtlesim turtle_teleop_key
 ```
 $ ros2 param list
 ```
-https://user-images.githubusercontent.com/73121257/175230830-7b60e1a8-4418-43b1-b821-5d68d1455288.mp4
 
+![Screenshot from 2022-12-10 16-24-00](https://user-images.githubusercontent.com/73121257/206857442-8d6920f6-675f-4353-a4fe-2ed24c1addbd.png)

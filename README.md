@@ -9,9 +9,19 @@ $ ros2 run turtlesim turtlesim_node
 ```
 $ ros2 run turtlesim turtle_teleop_key
 ```
- file:///home/ali/Pictures/Screenshots/Screenshot%20from%202022-12-10%2016-24-51.png
+![Screenshot from 2022-12-10 16-24-51](https://user-images.githubusercontent.com/73121257/206857494-32971efe-e2ef-4a17-bfbc-5c29e3a00e49.png)
+
 Üçüncü bir terminal açıp aktif düğümlerin parametrelerini inceleyin.
 ```
 $ ros2 param list
 ```
-
+![Screenshot from 2022-12-10 16-26-18](https://user-images.githubusercontent.com/73121257/206857513-5baa5656-a657-408a-be69-550100861bb2.png)
+Dördüncü bir terminal açıp parametre değerlerini okuyalım.
+```
+$ ros2 param get /turtlesim background_b
+```
+![Screenshot from 2022-12-10 16-28-16](https://user-images.githubusercontent.com/73121257/206857633-b8402662-f0b1-4106-beff-fec2c0fb1999.png)
+Parametre değeriini değiştirmek için set komutu kullanılır.
+```
+$ ros2 param get /turtlesim background_b
+```

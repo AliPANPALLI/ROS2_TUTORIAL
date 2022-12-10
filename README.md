@@ -4,7 +4,11 @@
 ```
 $ ros2 run turtlesim turtlesim_node
 ```
-Yeni bir terminalde teleop_turtle düğümünü çalıştırın.
+İkinci bir terminal açıp terminale teleop_turtle düğümünü çalıştırın.
 ```
 $ ros2 run turtlesim turtle_teleop_key
+```
+Üçüncü bir terminal açıp akif düğümlerin parametrelerini inceleyin.
+```
+$ ros2 param list
 ```

@@ -23,5 +23,5 @@ $ ros2 param get /turtlesim background_b
 ![Screenshot from 2022-12-10 16-28-16](https://user-images.githubusercontent.com/73121257/206857633-b8402662-f0b1-4106-beff-fec2c0fb1999.png)
 Parametre değeriini değiştirmek için set komutu kullanılır.
 ```
-$ ros2 param get /turtlesim background_b
+$ ros2 param set /turtlesim background_b 150
 ```

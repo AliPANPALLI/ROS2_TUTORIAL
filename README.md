@@ -183,10 +183,35 @@ Sistemi çalışırken görmek için yeni bir terminal açın ve ilk kaplumbağa
  
 ## COLCON Paketleri Oluşturmak 
  ```
- sudo aptinstall python3-colcon-common-extensions
+ sudo apt install python3-colcon-common-extensions
  ```
  ### Workspace Oluşturma
  ```
  mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws
+ cd ~/ros2_ws
  ```
+## Hazır Paket Yükleme
+ Örnek deposunu srcçalışma alanının dizinine kopyalayalım :
+```
+ git clone https://github.com/ros2/examples src/examples -b galactic
+ ```
+ Ana workspace dizinimize geçerek build işlemimizi tamamlayalım.
+ ```
+ colcon build --symlink-install
+```
+ Derleme tamamlandıktan sonra src klasörünün yanında, install ve log dizinlerini görmeliyiz.
+ Az önce oluşturduğumuz paketlerde testler yapmak için colcon test komutu çalıştırılır.Colcon oluşturmayı başarıyla tamamladığında, çıktı install dizinde olacaktır. Yüklü yürütülebilir dosyalardan veya kitaplıklardan herhangi birini kullanmadan önce, bunları yolunuza ve kitaplık yollarınıza eklemeniz gerekir. colcon install, ortamın kurulumuna yardımcı olmak için dizinde bash/bat dosyaları oluşturmuş olacaktır. Bu dosyalar, gerekli tüm öğeleri yolunuza ve kitaplık yollarınıza ekleyecek ve paketler tarafından dışa aktarılan tüm bash veya kabuk komutlarını sağlayacaktır.
+ ```
+ . install/setup.bash
+ ```
+ Kaynaklı ortam ile colcon tarafından oluşturulan yürütülebilir dosyaları çalıştırabiliriz. Örneklerden bir abone düğümü çalıştıralım:
+ ```
+ ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
+ ```
+ Başka bir terminalde, bir yayıncı düğümü çalıştıralım (kurulum betiğini kaynaklamayı unutmayın):
+ ```
+ ```
+ ros2 run examples_rclcpp_minimal_publisher publisher_member_function
+ ```
+ Artan sayılarla yayıncı ve aboneden gelen mesajları görmelisiniz.
+

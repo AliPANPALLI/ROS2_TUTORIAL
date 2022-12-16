@@ -71,6 +71,12 @@ requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, 
 response:
 turtlesim.srv.Spawn_Response(name='turtle2')
 ```
-### ROS2 DÜĞÜM
- ![Nodes-TopicandService](https://user-images.githubusercontent.com/73121257/208055253-b2523f3d-6d9e-4baa-9e17-28bb08fa914d.gif)
-
+## ROS2 DÜĞÜM
+ROS'daki her düğüm, tek bir modül amacından sorumlu olmalıdır (örneğin, tekerlekli motorları kontrol etmek için bir düğüm, bir lazer mesafe bulucuyu kontrol etmek için bir düğüm, vb.). Her düğüm, konular, hizmetler, eylemler veya parametreler aracılığıyla diğer düğümlere veri gönderip alabilir.
+![Nodes-TopicandService](https://user-images.githubusercontent.com/73121257/208055253-b2523f3d-6d9e-4baa-9e17-28bb08fa914d.gif)
+### Örnek
+ ```
+ source /opt/ros/<rosdistro>/setup.bash
+ ros2 run <package_name> <executable_name>
+ ros2 run turtlesim turtlesim_node
+```

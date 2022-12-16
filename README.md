@@ -209,7 +209,7 @@ Sistemi çalışırken görmek için yeni bir terminal açın ve ilk kaplumbağa
  ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
  ```
  Başka bir terminalde, bir yayıncı düğümü çalıştıralım (kurulum betiğini kaynaklamayı unutmayın):
- ```
+ 
  ```
  ros2 run examples_rclcpp_minimal_publisher publisher_member_function
  ```

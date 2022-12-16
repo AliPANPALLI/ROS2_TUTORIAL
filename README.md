@@ -215,3 +215,13 @@ Sistemi çalışırken görmek için yeni bir terminal açın ve ilk kaplumbağa
  ```
  Artan sayılarla yayıncı ve aboneden gelen mesajları görmelisiniz.
 
+## Kendi Paketimizi Oluşturma
+ ```
+ mkdir -p ros2_ws/src
+ cd ros2_ws/src
+ ros2 pkg create --build-type ament_cmake --node-name my_node my_package
+ cd ..
+ colcon build
+ . install/local_setup.bash #localde worksapce belirtilir.
+ ros2 run my_package my_node
+ ```

@@ -225,3 +225,9 @@ Sistemi çalışırken görmek için yeni bir terminal açın ve ilk kaplumbağa
  . install/local_setup.bash #localde worksapce belirtilir.
  ros2 run my_package my_node
  ```
+ ## C++ ile Subscriber ve publisher yazma
+ ```
+cd ros2_ws/src
+ros2 pkg --build-type ament_cmake cpp_pubsub
+cd cpp_pubsub/src
+wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/galactic/rclcpp/topics/minimal_publisher/member_function.cpp

@@ -160,6 +160,27 @@ def generate_launch_description():
         )
     ])
   ```
+ ### ROS2 LAUNCH
+ ```
+ cd launch
+ ros2 launch turtlesim_mimic_launch.py
+ ```
+ launch dosyamızı yukarudaki komut satırıyla başlatalım çıktımız aşağıdaki şekildeki gibi olacaktır.
+ ![multipl_launch_turtlesim](https://user-images.githubusercontent.com/73121257/208149617-2b40c129-474c-435f-9f45-b8d0610d2bad.png)
+Sistemi çalışırken görmek için yeni bir terminal açın ve ilk kaplumbağayı hareket ettirmek için konuyla ilgili komutu çalıştırın ```ros2 topic pub``` ```/turtlesim1/turtle1/cmd_vel```
+ ```
+ ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+
+ ```
+ ![multiple_turtle](https://user-images.githubusercontent.com/73121257/208150191-43e90f98-044c-4b02-85bf-6f4fe01e8f3f.png)
+ ### Sistemi rqt_graph ile inceleyelim
+ Sistem hala çalışırken, ```rqt_graph```başlatma dosyanızdaki düğümler arasındaki ilişki hakkında daha iyi bir fikir edinmek için yeni bir terminal açın ve çalıştırın.
+ ```
+ rqt_graph
+ ```
+ ![rosgraph](https://user-images.githubusercontent.com/73121257/208150659-9cc2f605-d21b-4826-9773-9676bfc955c7.png)
+
+ 
 ## COLCON Paketleri Oluşturmak 
  ```
  sudo aptinstall python3-colcon-common-extensions

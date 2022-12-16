@@ -115,5 +115,13 @@ Başka bir terminal
  
  ![Service-MultipleServiceClient](https://user-images.githubusercontent.com/73121257/208063456-ffe29eea-c44b-4d4c-b6d9-4104d27dc997.gif)
 780da7a932.gif)
-
+## Kurulum
+ İki kaplumbağa düğümü başlatalım ```/turtlesim``` ve ```/teleop_turtle```
+ ```
+ ros2 run turtlesim tuertlesim_node #İlk terminal
+ ros2 run tutlesim turtle_teleop_key #İkinci Terminal
+ ```
+ ## ROS2 Hizmet Listesi
+ Komutu yeni bir terminalde çalıştırmak , sistemde o anda etkin olan tüm hizmetlerin bir listesini döndürür```ros2 service list```
+ 
 

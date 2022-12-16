@@ -124,4 +124,12 @@ Başka bir terminal
  ## ROS2 Hizmet Listesi
  Komutu yeni bir terminalde çalıştırmak , sistemde o anda etkin olan tüm hizmetlerin bir listesini döndürür```ros2 service list```
  
-
+## COLCON Paketleri Oluşturmak 
+ ```
+ sudo aptinstall python3-colcon-common-extensions
+ ```
+ ### Workspace Oluşturma
+ ```
+ mkdir -p ~/ros2_ws/src
+cd ~/ros2_ws
+ ```

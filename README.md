@@ -77,6 +77,33 @@ ROS'daki her düğüm, tek bir modül amacından sorumlu olmalıdır (örneğin,
 ### Örnek
  ```
  source /opt/ros/<rosdistro>/setup.bash
- ros2 run <package_name> <executable_name>
+ #ros2 run <package_name> <executable_name>
  ros2 run turtlesim turtlesim_node
 ```
+ ## ROS2 Düğüm Listesi
+  ```ros2 node list ``` çalışan tüm düğümlerin adlarını size gösterecektir.
+  ```
+ ros2 node list
+```
+ Komutu sayesinde aktif olan tüm düğümleri listeler.
+ ## ROS2 Düğüm Bilgisi
+ ```
+ ros2 node info /turtlesim #turtlesim konusuna dair çıktıları dinler.
+ ```
+ ### Örnek
+ Yeni Terminal
+ ```
+ ros2 run turtlesim turtlesim_node
+ ```
+Başka bir terminal
+ ```
+ ros2 run turtlesim turtle_teleop_key
+ ```
+ ## rqt_graf
+ ```
+ rqt graph
+ ```
+ ### Çıktı
+ ![rqt_graph](https://user-images.githubusercontent.com/73121257/208062627-60aabe60-63f0-425d-89ab-9859202bb8c6.png)
+ ## ROS2 Konu Bilgisi
+ Ros2 konu bilgisi komutu ``` ros2 topic info /<topic_name>``` ile alınır.

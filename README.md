@@ -383,3 +383,93 @@ install(TARGETS
 
 ament_package()
  ```
+## Subscriber Düğümü Yazma
+ Bir sonraki düğümü oluşturmak için ros2_ws/src/cpp_pubsub/src'ye dönün. Terminalinize aşağıdaki kodu girin:
+ ```
+ wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/galactic/rclcpp/topics/minimal_subscriber/member_function.cpp
+ ```
+```subscriber_member_function.cpp``` dosyasını metin düzenleyicinizle açın.
+ ```
+ #include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
+using std::placeholders::_1;
+
+class MinimalSubscriber : public rclcpp::Node
+{
+  public:
+    MinimalSubscriber()
+    : Node("minimal_subscriber")
+    {
+      subscription_ = this->create_subscription<std_msgs::msg::String>(
+      "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+    }
+
+  private:
+    void topic_callback(const std_msgs::msg::String & msg) const
+    {
+      RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
+    }
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalSubscriber>());
+  rclcpp::shutdown();
+  return 0;
+}
+ ```
+ #### Kodu inceleyelim
+ Abone düğümünün kodu, yayıncınınkiyle neredeyse aynıdır. Artık düğüm, minimal_subscriber olarak adlandırılmıştır ve yapıcı, geri aramayı yürütmek için düğümün create_subscription sınıfını kullanır. Zamanlayıcı yoktur, çünkü abone, konu konusuna veri her yayınlandığında yanıt verir.
+ ```
+ public:
+  MinimalSubscriber()
+  : Node("minimal_subscriber")
+  {
+    subscription_ = this->create_subscription<std_msgs::msg::String>(
+    "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+  }
+ ```
+ Konu öğreticisinden, yayıncı ve abone tarafından kullanılan konu adı ve mesaj türünün iletişim kurabilmeleri için eşleşmesi gerektiğini hatırlayın. topic_callback işlevi, konu üzerinde yayınlanan dize mesajı verilerini alır ve RCLCPP_INFO makrosunu kullanarak konsola yazar. .Bu sınıftaki tek alan bildirimi aboneliktir.
+ ```
+ private:
+  void topic_callback(const std_msgs::msg::String & msg) const
+  {
+    RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
+  }
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+ ```
+ Ana işlev, MinimalSubscriber düğümünü döndürmesi dışında tamamen aynıdır. Yayıncı düğümü için döndürmek, zamanlayıcıyı başlatmak anlamına geliyordu, ancak abone için bu, yalnızca geldikleri zaman mesajları almaya hazırlanmak anlamına geliyordu. Bu düğüm, yayıncı düğümü ile aynı bağımlılıklara sahip olduğundan, ```package.xml ```dosyasına eklenecek yeni bir şey yok.```CMakeLists.txt``` dosyasını yeniden açın ve yayıncının girişlerinin altındaki abone düğümü için yürütülebilir dosyayı ve hedefi ekleyin.
+ ```
+ add_executable(listener src/subscriber_member_function.cpp)
+ament_target_dependencies(listener rclcpp std_msgs)
+
+install(TARGETS
+  talker
+  listener
+  DESTINATION lib/${PROJECT_NAME})
+ ```
+ ## Build and Run
+ Muhtemelen ROS 2 sisteminizin bir parçası olarak rclcpp ve std_msgs paketlerine zaten sahipsiniz. Oluşturmadan önce eksik bağımlılıkları kontrol etmek için çalışma alanınızın kök dizininde (ros2_ws) rosdep çalıştırmak iyi bir uygulamadır:
+ ```
+ rosdep install -i --from-path src --rosdistro galactic -y
+ ```
+ Hala çalışma alanınızın kökünde, ros2_ws, yeni paketinizi oluşturun:
+ ```
+ colcon build --packages-select cpp_pubsub
+ ```
+ Yeni bir terminal açın, ros2_ws'ye gidin ve kurulum dosyalarını kaynaklayın:
+ ```
+ . install/setup.bash
+ ```
+ Şimdi talker düğümünü çalıştırın:
+ ```
+ ros2 run cpp_pubsub talker
+ ```
+ Başka bir terminal açın, kurulum dosyalarını yeniden ros2_ws içinden kaynaklayın ve ardından dinleyici düğümünü başlatın:
+ ```
+ ros2 run cpp_pubsub listener
+ ```

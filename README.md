@@ -334,3 +334,52 @@ size_t count_;
   return 0;
 }
  ```
+## Kaynakları Ekleyin
+ pacakge.xml dosyası açılır``` amen_cmake ```buildtooldependency satırının altına 
+ ```
+ <depend>rclcpp</depend>
+<depend>std_msgs</depend>
+ ```
+ eklenir. Şimdi CMakeLists.txt dosyasını açın. Mevcut bağımlılığın altında find_package(ament_cmake REQUIRED), satırları ekleyin
+ ```
+ find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+ ```
+ Bundan sonra yürütülebilir dosyayı ekleyin ve konuşmacı olarak adlandırın, böylece düğümünüzü ros2 çalıştırmasını kullanarak çalıştırabilirsiniz:
+ ```
+ add_executable(talker src/publisher_member_function.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
+ ```
+ Son olarak, ros2 run'un çalıştırılabilir dosyanızı bulabilmesi için install(TARGETS…) bölümünü ekleyin:
+ ```
+ install(TARGETS
+  talker
+  DESTINATION lib/${PROJECT_NAME})
+ ```
+ Bazı gereksiz bölümleri ve yorumları kaldırarak CMakeLists.txt dosyanızı temizleyebilirsiniz, böylece şöyle görünür:
+ ```
+ cmake_minimum_required(VERSION 3.5)
+project(cpp_pubsub)
+
+Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_executable(talker src/publisher_member_function.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
+
+install(TARGETS
+  talker
+  DESTINATION lib/${PROJECT_NAME})
+
+ament_package()
+ ```

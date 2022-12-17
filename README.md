@@ -231,3 +231,106 @@ cd ros2_ws/src
 ros2 pkg --build-type ament_cmake cpp_pubsub
 cd cpp_pubsub/src
 wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/galactic/rclcpp/topics/minimal_publisher/member_function.cpp
+```
+ #### publisher_member_function.cpp
+ ```
+ #include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
+
+using namespace std::chrono_literals;
+
+/* This example creates a subclass of Node and uses std::bind() to register a
+* member function as a callback from the timer. */
+
+class MinimalPublisher : public rclcpp::Node
+{
+  public:
+    MinimalPublisher()
+    : Node("minimal_publisher"), count_(0)
+    {
+      publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+      timer_ = this->create_wall_timer(
+      500ms, std::bind(&MinimalPublisher::timer_callback, this));
+    }
+
+  private:
+    void timer_callback()
+    {
+      auto message = std_msgs::msg::String();
+      message.data = "Hello, world! " + std::to_string(count_++);
+      RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
+      publisher_->publish(message);
+    }
+    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+    size_t count_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+ ```
+ #### Adım adım kodları inceleyelim
+ Kodun üst kısmı, kullanacağınız standart C başlıklarını içerir. Standart C başlıklarından sonra, ROS 2 sisteminin en yaygın parçalarını kullanmanıza izin veren rclcpp/rclcpp.hpp içerir. Sonuncusu, verileri yayınlamak için kullanacağınız yerleşik mesaj türünü içeren std_msgs/msg/string.hpp'dir.
+ ```
+ #include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
+
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
+
+using namespace std::chrono_literals;
+ ```
+ Sonraki satır, rclcpp::Node'dan miras alarak MinimalPublisher düğüm sınıfını oluşturur. Koddaki her bu, düğüme atıfta bulunur.
+ ```
+ class MinimalPublisher : public rclcpp::Node
+ ```
+ Genel oluşturucu, düğümü minimal_publisher olarak adlandırır ve count_ öğesini 0 olarak başlatır. Yapıcı içinde, yayıncı, bir yedekleme durumunda iletileri sınırlamak için Dize ileti türü, konu adı konusu ve gerekli kuyruk boyutu ile başlatılır. Ardından, timer_callback işlevinin saniyede iki kez yürütülmesine neden olan timer_ başlatılır.,
+ ```
+ public:
+  MinimalPublisher()
+  : Node("minimal_publisher"), count_(0)
+  {
+    publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
+    timer_ = this->create_wall_timer(
+    500ms, std::bind(&MinimalPublisher::timer_callback, this));
+  }
+ ```
+ timer_callback işlevi, mesaj verilerinin ayarlandığı ve mesajların gerçekten yayınlandığı yerdir. RCLCPP_INFO makrosu, yayınlanan her mesajın konsola yazdırılmasını sağlar.
+ ```
+ private:
+  void timer_callback()
+  {
+    auto message = std_msgs::msg::String();
+    message.data = "Hello, world! " + std::to_string(count_++);
+    RCLCPP_INFO(this->get_logger(), "Publishing: '%s'", message.data.c_str());
+    publisher_->publish(message);
+  }
+ ```
+ Sonuncusu zamanlayıcı, yayıncı ve sayaç alanlarının bildirimidir.
+ ```
+ rclcpp::TimerBase::SharedPtr timer_;
+rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+size_t count_;
+ ```
+ MinimalPublisher sınıfını takip etmek, düğümün gerçekte yürütüldüğü ana sınıftır. rclcpp::init, ROS 2'yi başlatır ve rclcpp::spin, zamanlayıcıdan gelen geri aramalar da dahil olmak üzere düğümden gelen verileri işlemeye başlar.
+ ```
+ int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<MinimalPublisher>());
+  rclcpp::shutdown();
+  return 0;
+}
+ ```

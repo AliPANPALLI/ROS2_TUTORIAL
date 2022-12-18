@@ -473,3 +473,152 @@ install(TARGETS
  ```
  ros2 run cpp_pubsub listener
  ```
+ ## Python ile Subscriber ve publisher yazma
+ #### Paket Oluşturalım
+ ```
+ cd ros2_ws/src
+ ros2 pkg create --build-type ament_python py_pubsub
+ ```
+ #### Publisher düğümü yazalım
+  ```
+cd ros2_ws/src/py_pubsub/py_pubsub
+ wget https://raw.githubusercontent.com/ros2/examples/galactic/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+ ```
+ ##### publisher_member_function.py
+ ```
+ import rclpy
+from rclpy.node import Node
+
+from std_msgs.msg import String
+
+
+class MinimalPublisher(Node):
+
+    def __init__(self):
+        super().__init__('minimal_publisher')
+        self.publisher_ = self.create_publisher(String, 'topic', 10)
+        timer_period = 0.5  # seconds
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        self.i = 0
+
+    def timer_callback(self):
+        msg = String()
+        msg.data = 'Hello World: %d' % self.i
+        self.publisher_.publish(msg)
+        self.get_logger().info('Publishing: "%s"' % msg.data)
+        self.i += 1
+
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    minimal_publisher = MinimalPublisher()
+
+    rclpy.spin(minimal_publisher)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    minimal_publisher.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+ ```
+ #### Kodu inceleyelim
+ Yorumlardan sonraki ilk kod satırları rclpy, Nodesınıfının kullanılabilmesi için içe aktarılır.
+```
+import rclpy
+from rclpy.node import Node
+ ```
+Bir sonraki ifade, düğümün konuyla ilgili aktardığı verileri yapılandırmak için kullandığı yerleşik dize mesaj türünü içe aktarır.
+```
+from std_msgs.msg import String
+ ```
+Bu satırlar, düğümün bağımlılıklarını temsil eder. package.xmlBir sonraki bölümde yapacağınız bağımlılıkların eklenmesi gerektiğini hatırlayın .
+
+Ardından, MinimalPublisheröğesinden miras alan (veya onun bir alt sınıfı olan) sınıf oluşturulur Node.
+```
+class MinimalPublisher(Node):
+ ```
+Aşağıda, sınıfın yapıcısının tanımı yer almaktadır. super().__init__sınıfın yapıcısını çağırır Nodeve ona sizin düğüm adınızı verir, bu durumda minimal_publisher.
+
+create_publisheradlı bir konu üzerinden düğümün (modülden Stringiçe aktarılan ) türünde mesajlar yayınladığını ve “kuyruk boyutunun” 10 olduğunu beyan eder. bir abone onları yeterince hızlı almıyor.std_msgs.msgtopic
+
+Ardından, her 0,5 saniyede bir yürütülecek bir geri arama ile bir zamanlayıcı oluşturulur. self.igeri aramada kullanılan bir sayaçtır.
+```
+def __init__(self):
+    super().__init__('minimal_publisher')
+    self.publisher_ = self.create_publisher(String, 'topic', 10)
+    timer_period = 0.5  # seconds
+    self.timer = self.create_timer(timer_period, self.timer_callback)
+    self.i = 0
+ ```
+timer_callbackeklenen sayaç değeri ile bir mesaj oluşturur ve bunu konsolda yayınlar get_logger().info.
+```
+def timer_callback(self):
+    msg = String()
+    msg.data = 'Hello World: %d' % self.i
+    self.publisher_.publish(msg)
+    self.get_logger().info('Publishing: "%s"' % msg.data)
+    self.i += 1
+ ```
+Son olarak, ana işlev tanımlanır.
+```
+def main(args=None):
+    rclpy.init(args=args)
+
+    minimal_publisher = MinimalPublisher()
+
+    rclpy.spin(minimal_publisher)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    minimal_publisher.destroy_node()
+    rclpy.shutdown()
+ ```
+Önce rclpykitaplık başlatılır, ardından düğüm oluşturulur ve ardından düğümü "döndürür", böylece geri aramaları çağrılır.
+## Bağımlılıkları ekleyelim
+ package.xmlMetin düzenleyicinizle açın .
+ ```
+ <description>Examples of minimal publisher/subscriber using rclpy</description>
+<maintainer email="you@email.com">Your Name</maintainer>
+<license>Apache License 2.0</license>
+ ```
+ Yukarıdaki satırlardan sonra, düğümünüzün import ifadelerine karşılık gelen aşağıdaki bağımlılıkları ekleyin:
+```
+<exec_depend>rclpy</exec_depend>
+<exec_depend>std_msgs</exec_depend>
+ ```
+Bu, paketin ihtiyaçlarını rclpyve std_msgskodunun ne zaman yürütüleceğini bildirir.
+
+Dosyayı kaydettiğinizden emin olun.
+
+setup.py Dosyayı açın . Yine, maintainer, maintainer_emailve descriptionalanlarını licenseaşağıdakilerle eşleştirin package.xml:
+ ```
+maintainer='YourName',
+maintainer_email='you@email.com',
+description='Examples of minimal publisher/subscriber using rclpy',
+license='Apache License 2.0',
+ ```
+Alanın console_scriptsköşeli parantezleri içine aşağıdaki satırı ekleyin :entry_points
+```
+entry_points={
+        'console_scripts': [
+                'talker = py_pubsub.publisher_member_function:main',
+        ],
+},
+ ```
+Kaydetmeyi unutmayın.
+ Dosyanın içeriği aşağıdaki setup.cfg gibi otomatik olarak doğru bir şekilde doldurulmalıdır:
+```
+[develop]
+script-dir=$base/lib/py_pubsub
+[install]
+install-scripts=$base/lib/py_pubsub
+ ```
+Bu basitçe setuptools'a yürütülebilir dosyalarınızı içine koymasını söylüyor lib, çünkü onları orada arayacaktır.ros2 run
+
+Paketinizi şimdi oluşturabilir, yerel kurulum dosyalarını kaynaklayabilir ve çalıştırabilirsiniz, ancak tüm sistemi iş başında görebilmeniz için önce abone düğümünü oluşturalım.

@@ -622,3 +622,81 @@ install-scripts=$base/lib/py_pubsub
 Bu basitçe setuptools'a yürütülebilir dosyalarınızı içine koymasını söylüyor lib, çünkü onları orada arayacaktır.ros2 run
 
 Paketinizi şimdi oluşturabilir, yerel kurulum dosyalarını kaynaklayabilir ve çalıştırabilirsiniz, ancak tüm sistemi iş başında görebilmeniz için önce abone düğümünü oluşturalım.
+#### Subscriber Düğümü Yazalım
+ ros2_ws/src/py_pubsub/py_pubsubSonraki düğümü oluşturmak için geri dönün . Terminalinize aşağıdaki kodu girin:
+ ```
+ wget https://raw.githubusercontent.com/ros2/examples/galactic/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+ ```
+ ##### Kodu inceleyin
+subscriber_member_function.pyMetin düzenleyicinizle açın .
+```
+import rclpy
+from rclpy.node import Node
+
+from std_msgs.msg import String
+
+
+class MinimalSubscriber(Node):
+
+    def __init__(self):
+        super().__init__('minimal_subscriber')
+        self.subscription = self.create_subscription(
+            String,
+            'topic',
+            self.listener_callback,
+            10)
+        self.subscription  # prevent unused variable warning
+
+    def listener_callback(self, msg):
+        self.get_logger().info('I heard: "%s"' % msg.data)
+
+
+def main(args=None):
+    rclpy.init(args=args)
+
+    minimal_subscriber = MinimalSubscriber()
+
+    rclpy.spin(minimal_subscriber)
+
+    # Destroy the node explicitly
+    # (optional - otherwise it will be done automatically
+    # when the garbage collector destroys the node object)
+    minimal_subscriber.destroy_node()
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    main()
+ ```
+Abone düğümünün kodu, yayıncınınkiyle neredeyse aynıdır. Yapıcı, yayıncıyla aynı bağımsız değişkenlere sahip bir abone oluşturur. Yayıncı ve abone tarafından kullanılan konu adı ve mesaj türünün, iletişim kurmalarına izin vermek için eşleşmesi gerektiğini konu eğitiminden hatırlayın .
+```
+self.subscription = self.create_subscription(
+    String,
+    'topic',
+    self.listener_callback,
+    10)
+ ```
+Abonenin oluşturucusu ve geri araması herhangi bir zamanlayıcı tanımı içermez, çünkü buna ihtiyacı yoktur. Bir mesaj alır almaz geri araması aranır.
+
+Geri arama tanımı, aldığı verilerle birlikte konsola bir bilgi mesajı yazdırır. Yayıncının tanımladığını hatırlayınmsg.data = 'Hello World: %d' % self.i
+```
+def listener_callback(self, msg):
+    self.get_logger().info('I heard: "%s"' % msg.data)
+ ```
+Tanım neredeyse tamamen aynıdır , mainyayıncının oluşturulması ve döndürülmesinin yerini abone alır.
+```
+minimal_subscriber = MinimalSubscriber()
+
+rclpy.spin(minimal_subscriber)
+ ```
+Bu düğüm, yayıncı ile aynı bağımlılıklara sahip olduğundan, eklenecek yeni bir şey yoktur package.xml. setup.cfgDosyaya dokunulmadan da kalabilir .
+ Yeniden açın setup.pyve abone düğümü için giriş noktasını yayıncının giriş noktasının altına ekleyin. Alan entry_pointsşimdi şöyle görünmelidir:
+```
+entry_points={
+        'console_scripts': [
+                'talker = py_pubsub.publisher_member_function:main',
+                'listener = py_pubsub.subscriber_member_function:main',
+        ],
+},
+ ```
+Dosyayı kaydettiğinizden emin olun ve ardından pub/sub sisteminiz kullanıma hazır olmalıdır.

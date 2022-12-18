@@ -700,3 +700,25 @@ entry_points={
 },
  ```
 Dosyayı kaydettiğinizden emin olun ve ardından pub/sub sisteminiz kullanıma hazır olmalıdır.
+ Muhtemelen ROS 2 sisteminizin bir parçası olarak rclpyve paketlerine zaten sahipsiniz . Oluşturmadan önce eksik bağımlılıkları kontrol etmek için çalışma alanınızın kökünde ( ) std_msgsçalıştırmak iyi bir uygulamadır :rosdepros2_ws
+ ```
+ rosdep install -i --from-path src --rosdistro galactic -y
+ ```
+ Hala çalışma alanınızın kökünde, ros2_wsyeni paketinizi oluşturun:
+ ```
+ colcon build --packages-select py_pubsub
+```
+ Yeni bir terminal açın, konumuna gidin ros2_wsve kurulum dosyalarını kaynaklayın:
+```
+ . install/setup.bash
+```
+ Şimdi talker düğümünü çalıştırın:
+```
+ros2 run py_pubsub talker
+```
+ Terminal, aşağıdaki gibi her 0,5 saniyede bir bilgi mesajları yayınlamaya başlamalıdır.
+Başka bir terminal açın, kurulum dosyalarını tekrar içeriden kaynaklayın ros2_wsve ardından dinleyici düğümünü başlatın:
+```
+ros2 run py_pubsub listener
+```
+ Dinleyici, yayıncının o anda açık olduğu mesaj sayısından başlayarak mesajları konsola yazdırmaya başlar.

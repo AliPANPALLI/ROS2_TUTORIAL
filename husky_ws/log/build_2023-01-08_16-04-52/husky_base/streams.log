@@ -1,0 +1,107 @@
+[0.014s] Invoking command in '/home/ali/husky_ws/build/husky_base': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ali/husky_ws/install/husky_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ali/husky_ws/install/husky_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/ali/husky_ws/src/husky/husky_base -DCMAKE_INSTALL_PREFIX=/home/ali/husky_ws/install/husky_base
+[0.059s] -- The C compiler identification is GNU 9.4.0
+[0.109s] -- The CXX compiler identification is GNU 9.4.0
+[0.114s] -- Check for working C compiler: /usr/bin/cc
+[0.169s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.170s] -- Detecting C compiler ABI info
+[0.228s] -- Detecting C compiler ABI info - done
+[0.237s] -- Detecting C compile features
+[0.237s] -- Detecting C compile features - done
+[0.239s] -- Check for working CXX compiler: /usr/bin/c++
+[0.305s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.306s] -- Detecting CXX compiler ABI info
+[0.372s] -- Detecting CXX compiler ABI info - done
+[0.382s] -- Detecting CXX compile features
+[0.382s] -- Detecting CXX compile features - done
+[0.384s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.404s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.404s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.567s] -- Found controller_interface: 0.11.0 (/opt/ros/foxy/share/controller_interface/cmake)
+[0.598s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.604s] -- Found rosidl_adapter: 1.3.0 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.674s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.699s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.767s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.241s] -- Found rmw_implementation_cmake: 1.0.3 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[1.243s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.244s] -- Looking for pthread.h
+[1.303s] -- Looking for pthread.h - found
+[1.303s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.377s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[1.377s] -- Looking for pthread_create in pthreads
+[1.437s] -- Looking for pthread_create in pthreads - not found
+[1.438s] -- Looking for pthread_create in pthread
+[1.522s] -- Looking for pthread_create in pthread - found
+[1.523s] -- Found Threads: TRUE  
+[1.753s] -- Found controller_manager: 0.11.0 (/opt/ros/foxy/share/controller_manager/cmake)
+[1.810s] -- Found husky_msgs: 1.0.8 (/home/ali/husky_ws/install/husky_msgs/share/husky_msgs/cmake)
+[1.840s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[1.900s] -- Found std_srvs: 2.0.5 (/opt/ros/foxy/share/std_srvs/cmake)
+[1.910s] -- Found tf2: 0.13.13 (/opt/ros/foxy/share/tf2/cmake)
+[1.918s] -- Found tf2_ros: 0.13.13 (/opt/ros/foxy/share/tf2_ros/cmake)
+[2.207s] -- Configuring done
+[2.231s] -- Generating done
+[2.232s] -- Build files have been written to: /home/ali/husky_ws/build/husky_base
+[2.239s] Invoked command in '/home/ali/husky_ws/build/husky_base' returned '0': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ali/husky_ws/install/husky_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ali/husky_ws/install/husky_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake /home/ali/husky_ws/src/husky/husky_base -DCMAKE_INSTALL_PREFIX=/home/ali/husky_ws/install/husky_base
+[2.241s] Invoking command in '/home/ali/husky_ws/build/husky_base': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ali/husky_ws/install/husky_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ali/husky_ws/install/husky_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ali/husky_ws/build/husky_base -- -j12 -l12
+[2.275s] [35m[1mScanning dependencies of target husky_hardware[0m
+[2.336s] [  8%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/Logger.cpp.o[0m
+[2.337s] [ 16%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy_wrapper.cpp.o[0m
+[2.337s] [ 25%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/crc.cpp.o[0m
+[2.337s] [ 33%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/Message.cpp.o[0m
+[2.337s] [ 50%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/husky_hardware.cpp.o[0m
+[2.337s] [ 50%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/Message_data.cpp.o[0m
+[2.338s] [ 58%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/Message_request.cpp.o[0m
+[2.338s] [ 66%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/Message_cmd.cpp.o[0m
+[2.338s] [ 75%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/Transport.cpp.o[0m
+[2.338s] [ 83%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/linux_serial.cpp.o[0m
+[2.338s] [ 91%] [32mBuilding CXX object CMakeFiles/husky_hardware.dir/src/horizon_legacy/Number.cpp.o[0m
+[4.382s] [100%] [32m[1mLinking CXX shared library libhusky_hardware.so[0m
+[4.547s] [100%] Built target husky_hardware
+[4.556s] Invoked command in '/home/ali/husky_ws/build/husky_base' returned '0': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ali/husky_ws/install/husky_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ali/husky_ws/install/husky_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/ali/husky_ws/build/husky_base -- -j12 -l12
+[4.593s] Invoking command in '/home/ali/husky_ws/build/husky_base': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ali/husky_ws/install/husky_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ali/husky_ws/install/husky_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ali/husky_ws/build/husky_base
+[4.600s] -- Install configuration: ""
+[4.600s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/husky_hardware.xml
+[4.601s] -- Installing: /home/ali/husky_ws/install/husky_base/lib/libhusky_hardware.so
+[4.602s] -- Set runtime path of "/home/ali/husky_ws/install/husky_base/lib/libhusky_hardware.so" to ""
+[4.602s] -- Installing: /home/ali/husky_ws/install/husky_base/include
+[4.602s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base
+[4.602s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy_wrapper.h
+[4.602s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy
+[4.602s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/serial.h
+[4.602s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Message_data.h
+[4.602s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/clearpath.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Transport.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Message.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Exception.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/crc.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Message_cmd.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Number.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Logger.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/horizon_legacy/Message_request.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/husky_hardware.hpp
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/include/husky_base/husky_diagnostics.h
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/launch
+[4.603s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/launch/base.launch.py
+[4.604s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/environment/library_path.sh
+[4.604s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/environment/library_path.dsv
+[4.604s] -- Installing: /home/ali/husky_ws/install/husky_base/share/ament_index/resource_index/package_run_dependencies/husky_base
+[4.604s] -- Installing: /home/ali/husky_ws/install/husky_base/share/ament_index/resource_index/parent_prefix_path/husky_base
+[4.604s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/environment/ament_prefix_path.sh
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/environment/ament_prefix_path.dsv
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/environment/path.sh
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/environment/path.dsv
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/local_setup.bash
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/local_setup.sh
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/local_setup.zsh
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/local_setup.dsv
+[4.605s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/package.dsv
+[4.606s] -- Installing: /home/ali/husky_ws/install/husky_base/share/ament_index/resource_index/packages/husky_base
+[4.606s] -- Installing: /home/ali/husky_ws/install/husky_base/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/husky_base
+[4.606s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.606s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/cmake/ament_cmake_export_libraries-extras.cmake
+[4.606s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.606s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/cmake/husky_baseConfig.cmake
+[4.607s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/cmake/husky_baseConfig-version.cmake
+[4.607s] -- Installing: /home/ali/husky_ws/install/husky_base/share/husky_base/package.xml
+[4.610s] Invoked command in '/home/ali/husky_ws/build/husky_base' returned '0': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_msgs:/opt/ros/foxy LD_LIBRARY_PATH=/home/ali/husky_ws/install/husky_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ali/husky_ws/install/husky_msgs/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/ali/husky_ws/build/husky_base

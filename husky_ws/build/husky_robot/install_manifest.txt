@@ -1,0 +1,15 @@
+/home/ali/husky_ws/install/husky_robot/share/ament_index/resource_index/package_run_dependencies/husky_robot
+/home/ali/husky_ws/install/husky_robot/share/ament_index/resource_index/parent_prefix_path/husky_robot
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/environment/ament_prefix_path.sh
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/environment/ament_prefix_path.dsv
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/environment/path.sh
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/environment/path.dsv
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/local_setup.bash
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/local_setup.sh
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/local_setup.zsh
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/local_setup.dsv
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/package.dsv
+/home/ali/husky_ws/install/husky_robot/share/ament_index/resource_index/packages/husky_robot
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/cmake/husky_robotConfig.cmake
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/cmake/husky_robotConfig-version.cmake
+/home/ali/husky_ws/install/husky_robot/share/husky_robot/package.xml

@@ -1,0 +1,2 @@
+Invoking command in '/home/ali/husky_ws/build/husky_description': /usr/bin/cmake /home/ali/husky_ws/src/husky/husky_description -DCMAKE_INSTALL_PREFIX=/home/ali/husky_ws/install/husky_description
+Invoked command in '/home/ali/husky_ws/build/husky_description' returned '1': /usr/bin/cmake /home/ali/husky_ws/src/husky/husky_description -DCMAKE_INSTALL_PREFIX=/home/ali/husky_ws/install/husky_description

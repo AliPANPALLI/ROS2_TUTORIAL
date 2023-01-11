@@ -1,0 +1,51 @@
+[0.012s] Invoking command in '/home/ali/husky_ws/build/husky_viz': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:/opt/ros/foxy /usr/bin/cmake /home/ali/husky_ws/src/husky/husky_viz -DCMAKE_INSTALL_PREFIX=/home/ali/husky_ws/install/husky_viz
+[0.058s] -- The C compiler identification is GNU 9.4.0
+[0.106s] -- The CXX compiler identification is GNU 9.4.0
+[0.110s] -- Check for working C compiler: /usr/bin/cc
+[0.166s] -- Check for working C compiler: /usr/bin/cc -- works
+[0.167s] -- Detecting C compiler ABI info
+[0.223s] -- Detecting C compiler ABI info - done
+[0.232s] -- Detecting C compile features
+[0.232s] -- Detecting C compile features - done
+[0.234s] -- Check for working CXX compiler: /usr/bin/c++
+[0.300s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[0.301s] -- Detecting CXX compiler ABI info
+[0.367s] -- Detecting CXX compiler ABI info - done
+[0.378s] -- Detecting CXX compile features
+[0.378s] -- Detecting CXX compile features - done
+[0.380s] -- Found ament_cmake: 0.9.11 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.400s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.400s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.615s] -- Configuring done
+[0.616s] -- Generating done
+[0.617s] -- Build files have been written to: /home/ali/husky_ws/build/husky_viz
+[0.620s] Invoked command in '/home/ali/husky_ws/build/husky_viz' returned '0': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:/opt/ros/foxy /usr/bin/cmake /home/ali/husky_ws/src/husky/husky_viz -DCMAKE_INSTALL_PREFIX=/home/ali/husky_ws/install/husky_viz
+[0.621s] Invoking command in '/home/ali/husky_ws/build/husky_viz': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:/opt/ros/foxy /usr/bin/cmake --build /home/ali/husky_ws/build/husky_viz -- -j12 -l12
+[0.659s] Invoked command in '/home/ali/husky_ws/build/husky_viz' returned '0': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:/opt/ros/foxy /usr/bin/cmake --build /home/ali/husky_ws/build/husky_viz -- -j12 -l12
+[0.680s] Invoking command in '/home/ali/husky_ws/build/husky_viz': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:/opt/ros/foxy /usr/bin/cmake --install /home/ali/husky_ws/build/husky_viz
+[0.688s] -- Install configuration: ""
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/launch
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/launch/view_model.launch
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/launch/view_robot.launch.py
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/launch/view_model.launch.py
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/launch/view_robot.launch
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/rviz
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/rviz/test.rviz
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/rviz/model.rviz
+[0.688s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/rviz/robot.rviz
+[0.689s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/ament_index/resource_index/package_run_dependencies/husky_viz
+[0.689s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/ament_index/resource_index/parent_prefix_path/husky_viz
+[0.689s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/environment/ament_prefix_path.sh
+[0.689s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/environment/ament_prefix_path.dsv
+[0.689s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/environment/path.sh
+[0.689s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/environment/path.dsv
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/local_setup.bash
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/local_setup.sh
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/local_setup.zsh
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/local_setup.dsv
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/package.dsv
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/ament_index/resource_index/packages/husky_viz
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/cmake/husky_vizConfig.cmake
+[0.690s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/cmake/husky_vizConfig-version.cmake
+[0.691s] -- Installing: /home/ali/husky_ws/install/husky_viz/share/husky_viz/package.xml
+[0.698s] Invoked command in '/home/ali/husky_ws/build/husky_viz' returned '0': AMENT_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ali/husky_ws/install/husky_description:/opt/ros/foxy /usr/bin/cmake --install /home/ali/husky_ws/build/husky_viz
